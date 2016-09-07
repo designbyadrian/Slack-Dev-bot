@@ -22,7 +22,7 @@ module.exports = (slapp) => {
     console.log("MESSAGE");
 
     request({
-      url: url,
+      url: randomUrl,
       json: true
     }, (error,response,body)=>{
       if(!error && response.statusCode === 200) {
