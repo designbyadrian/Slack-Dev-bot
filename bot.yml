@@ -5,4 +5,5 @@ avatar: icon.png
 slackscopes:
   - bot
   - commands
-  - reactions:write
+  - channels:read
+  - chat:write:bot
