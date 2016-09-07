@@ -4,6 +4,14 @@ const request = require('request')
 const defineUrl = "http://api.urbandictionary.com/v0/define?term=";
 const randomUrl = "http://api.urbandictionary.com/v0/random";
 
+const thoughts = [
+  "Hey guys! Listen to this...",
+  "I've got one!",
+  "I spy with my little brown eye...",
+  "My turn!",
+  ":wink:"
+];
+
 module.exports = (slapp) => {
 
   let searching = false
@@ -20,14 +28,15 @@ module.exports = (slapp) => {
 
       if(msg.body.text.toLowerCase().indexOf('random')>=0) {
         random = true;
-        msg.say(`I'm thinking about something...`)
+
+        msg.say(thoughts[Math.floor(Math.random()*thoughts.length)]);
       } else {
-        msg.say(`I'm thinking about ${msg.body.text}...`)
+        msg.say(`Do you guys know what ${msg.body.text} is?... :wink:`)
       }
     }
 
     request({
-        url: random?randomUrl:(defineUrl+msg.body.text),
+        url: random?randomUrl:(defineUrl+encodeURIComponent(msg.body.text)),
         json: true
       }, (error,response,body)=>{
 
