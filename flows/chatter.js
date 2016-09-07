@@ -28,7 +28,7 @@ module.exports = (slapp) => {
       .say(`Message event echo, "${msg.body.text}"`)*/
   })
 
-  slapp.message('', (msg) => {
+  slapp.message('.*', (msg) => {
     console.log("MESSAGE");
     /*msg
       .say(`Message event echo, "${msg.body.text}"`)*/
@@ -38,6 +38,13 @@ module.exports = (slapp) => {
     console.log("HELLO MESSAGE");
     /*msg
       .say(`Message event echo, "${msg.body.text}"`)*/
+  })
+
+  slapp.message('.*', ['mention', 'direct_mention', 'direct_message'], (msg) => {
+    // respond only 40% of the time
+    //if (Math.random() < 0.4) {
+      msg.say([':wave:', ':pray:', ':raised_hands:'])
+    //}
   })
 
 /*
