@@ -11,13 +11,13 @@ module.exports = (slapp) => {
   });*/
 
   slapp.command('/urban', (msg) => {
-    msg
-      .say(`LOL, ${msg.body.user_name} said "${msg.bidy.text}"`)
+    console.log("got msg",msg);
+    /*msg
+      .say(`LOL, ${msg.body.user_name} said "${msg.bidy.text}"`)*/
   })
 
-  slapp.message('^(hi|hello|hey)$', ['mention','direct_mention','direct_message'], (msg, text) => {
-    msg
-      .say(`'Sup`)
+  slapp.message('*', ['mention','direct_mention','direct_message'], (msg) => {
+    console.log("someone posted a message",msg);
   })
 
 /*
