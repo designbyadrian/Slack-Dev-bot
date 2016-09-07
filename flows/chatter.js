@@ -10,7 +10,7 @@ module.exports = (slapp) => {
 
   slapp.command('/urban', (msg,text,name) => {
     msg
-      .respond(`LOL, ${name} said ${text}`)
+      .say(`LOL, ${name} said ${text}`)
   })
 
   slapp.message('^(hi|hello|hey)$', ['direct_mention', 'direct_message'], (msg, text, name) => {
