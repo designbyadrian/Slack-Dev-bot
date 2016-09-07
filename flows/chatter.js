@@ -9,7 +9,6 @@ module.exports = (slapp) => {
   let searching = false
 
   slapp.command('/urban', (msg) => {
-    console.log("COMMAND");
 
     if(searching) {
       msg.say("Shut up! I'm busy!");
@@ -32,7 +31,7 @@ module.exports = (slapp) => {
             if(body.list.length<1) {
               msg.say(`I don't know what the fuck "${msg.body.text}" is!`);
             } else {
-              msg.say(body.list[0].definition);
+              msg.say(`*${msg.body.text}*: ${body.list[0].definition}`);
             }
 
             
