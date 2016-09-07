@@ -10,17 +10,24 @@ module.exports = (slapp) => {
 
   slapp.command('/urban', (msg) => {
 
+    var random = false;
+
     if(searching) {
       msg.say("Shut up! I'm busy!");
       return false;
     } else {
       searching = true;
 
-      msg.say(`I'm thinking about ${msg.body.text}...`)
+      if(msg.body.text.toLowerCase().indexOf('random')>=0) {
+        random = true;
+        msg.say(`I'm thinking about something...`)
+      } else {
+        msg.say(`I'm thinking about ${msg.body.text}...`)
+      }
     }
 
     request({
-        url: defineUrl+msg.body.text,
+        url: random?randomUrl:(defineUrl+msg.body.text),
         json: true
       }, (error,response,body)=>{
 
@@ -34,7 +41,7 @@ module.exports = (slapp) => {
               msg.say(`I don't know what the fuck "${msg.body.text}" is!`);
             } else {
               var index = Math.floor(Math.random()*body.list.length);
-              msg.say(`*${msg.body.text}*: ${body.list[index].definition}`);
+              msg.say(`*${body.list[index].word}*: ${body.list[index].definition}`);
             }
 
             
