@@ -16,8 +16,20 @@ module.exports = (slapp) => {
       .say(`Echo, "${msg.body.text}"`)
   })
 
-  slapp.event('message', (msg) => {
-    console.log("EVENT MESSAGE");
+  slapp.event('message.group', (msg) => {
+    console.log("EVENT GROUP MESSAGE");
+    /*msg
+      .say(`Message event echo, "${msg.body.text}"`)*/
+  })
+
+  slapp.event('message.mpim', (msg) => {
+    console.log("EVENT MPIM MESSAGE");
+    /*msg
+      .say(`Message event echo, "${msg.body.text}"`)*/
+  })
+
+  slapp.event('message.channels', (msg) => {
+    console.log("EVENT CHANNEL MESSAGE");
     /*msg
       .say(`Message event echo, "${msg.body.text}"`)*/
   })
