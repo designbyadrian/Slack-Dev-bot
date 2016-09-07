@@ -9,7 +9,12 @@ const thoughts = [
   "I've got one!",
   "I spy with my little brown eye...",
   "My turn!",
-  ":wink:"
+  ":wink:",
+  ":point_right: :ok_hand:",
+  "Scraping the bottom of the barrel...",
+  "Packing fudge...",
+  "Choking the chicken...",
+  "Polishing my helmet..."
 ];
 
 module.exports = (slapp) => {
@@ -31,7 +36,7 @@ module.exports = (slapp) => {
 
         msg.say(thoughts[Math.floor(Math.random()*thoughts.length)]);
       } else {
-        msg.say(`Do you guys know what ${msg.body.text} is?... :wink:`)
+        msg.say(`Do you guys know what ${msg.body.text} is?...`)
       }
     }
 
