@@ -1,7 +1,10 @@
 name: Urban Bot
 description: Displayes rude definitions of words
 email: adrian@designbyadrian.com.com
-avatar: icon.png
+avatar: img/icon.png
+background: img/background.gif
+screenshots:
+  - screenshot: img/screenshot1.png
 slackscopes:
   - bot
   - commands
