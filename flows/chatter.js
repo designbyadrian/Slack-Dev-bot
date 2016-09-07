@@ -30,7 +30,7 @@ module.exports = (slapp) => {
     var random = false;
 
     if(searching) {
-      msg.say("Shut up! I'm busy!");
+      msg.respond("Shut up! I'm busy!");
       return false;
     } else {
       searching = true;
