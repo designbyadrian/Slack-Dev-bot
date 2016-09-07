@@ -23,6 +23,10 @@ module.exports = (slapp) => {
 
   slapp.command('/urban', (msg) => {
 
+    if(msg.body.text.length<2) {
+      return false;
+    }
+
     var random = false;
 
     if(searching) {
