@@ -11,8 +11,8 @@ module.exports = (slapp) => {
   slapp.command('/urban', (msg) => {
     console.log("COMMAND");
 
-    if(!searching) {
-      msg.say("I'm busy!");
+    if(searching) {
+      msg.say("Shut up! I'm busy!");
       return false;
     } else {
       searching = true;
@@ -45,7 +45,6 @@ module.exports = (slapp) => {
   })
 
   slapp.message('.*', (msg) => {
-    console.log("MESSAGE");
 
     if(Math.random()<0.1&&!searching) {
 
