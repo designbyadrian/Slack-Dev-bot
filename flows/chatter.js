@@ -31,7 +31,8 @@ module.exports = (slapp) => {
             if(body.list.length<1) {
               msg.say(`I don't know what the fuck "${msg.body.text}" is!`);
             } else {
-              msg.say(`*${msg.body.text}*: ${body.list[0].definition}`);
+              var index = Math.floor(Math.random()*body.list.length);
+              msg.say(`*${msg.body.text}*: ${body.list[index].definition}`);
             }
 
             
