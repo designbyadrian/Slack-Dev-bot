@@ -23,7 +23,11 @@ module.exports = (slapp) => {
 
   slapp.command('/urban', (msg) => {
 
-    if(msg.body.text.length<2) {
+    if(msg.body.text == "?") {
+      msg.respond(`Just type a phrase after *"/urban"*, idiot!`);
+      return false;
+    } else if(msg.body.text.length<2) {
+      msg.respond(`Use both hands and type properly, faggot!`);
       return false;
     }
 
