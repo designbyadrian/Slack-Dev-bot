@@ -4,18 +4,20 @@
 
 module.exports = (slapp) => {
 
+  let searching = false
+
 /*  slapp.message('*', (msg, text) => {
     msg.say("You said: "+text);
   });*/
 
-  slapp.command('/urban', (msg,text,name) => {
+  slapp.command('/urban', (msg) => {
     msg
-      .say(`LOL, ${name} said ${text}`)
+      .say(`LOL, ${msg.body.user_name} said "${msg.bidy.text}"`)
   })
 
-  slapp.message('^(hi|hello|hey)$', ['direct_mention', 'direct_message'], (msg, text, name) => {
+  slapp.message('^(hi|hello|hey)$', ['mention','direct_mention','direct_message'], (msg, text) => {
     msg
-      .say(`'Sup, ${name}`)
+      .say(`'Sup`)
   })
 
 /*
