@@ -11,13 +11,15 @@ module.exports = (slapp) => {
   });*/
 
   slapp.command('/urban', (msg) => {
-    console.log("got msg",msg);
-    /*msg
-      .say(`LOL, ${msg.body.user_name} said "${msg.bidy.text}"`)*/
+    console.log("COMMAND");
+    msg
+      .say(`Echo, "${msg.body.text}"`)
   })
 
   slapp.event('message', (msg) => {
-    console.log("someone posted a message",msg);
+    console.log("EVENT MESSAGE");
+    /*msg
+      .say(`Message event echo, "${msg.body.text}"`)*/
   })
 
 /*
