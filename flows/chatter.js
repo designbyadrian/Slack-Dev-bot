@@ -1,6 +1,6 @@
 'use strict'
 
-const request = require('reques')
+const request = require('request')
 const defineUrl = "http://api.urbandictionary.com/v0/define?term=";
 const randomUrl = "http://api.urbandictionary.com/v0/random";
 
