@@ -22,6 +22,12 @@ module.exports = (slapp) => {
       .say(`Message event echo, "${msg.body.text}"`)*/
   })
 
+  slapp.event('message.im', (msg) => {
+    console.log("EVENT MESSAGE.IM");
+    /*msg
+      .say(`Message event echo, "${msg.body.text}"`)*/
+  })
+
 /*
   slapp.route(handleHowAreYou, (msg) => {
     var resp = msg.body.event && msg.body.event.text
