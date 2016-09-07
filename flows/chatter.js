@@ -15,6 +15,8 @@ module.exports = (slapp) => {
       return false;
     } else {
       searching = true;
+
+      msg.say(`I'm thinking about ${msg.body.text}...`)
     }
 
     request({
