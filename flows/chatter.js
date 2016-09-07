@@ -1,15 +1,24 @@
 'use strict'
 
-const handleHowAreYou = 'chatter:handleHowAreYou'
+//const handleHowAreYou = 'chatter:handleHowAreYou'
 
 module.exports = (slapp) => {
 
-  slapp.message('^(hi|hello|hey)$', ['direct_mention', 'direct_message'], (msg, text) => {
+/*  slapp.message('*', (msg, text) => {
+    msg.say("You said: "+text);
+  });*/
+
+  slapp.command('/urban', (msg,text,name) => {
     msg
-      .say(text + ', how are you?')
-      .route(handleHowAreYou, {}, 60)
+      .respond(`LOL, ${name} said ${text}`)
   })
 
+  slapp.message('^(hi|hello|hey)$', ['direct_mention', 'direct_message'], (msg, text, name) => {
+    msg
+      .say(`'Sup, ${name}`)
+  })
+
+/*
   slapp.route(handleHowAreYou, (msg) => {
     var resp = msg.body.event && msg.body.event.text
 
@@ -35,5 +44,5 @@ module.exports = (slapp) => {
     if (Math.random() < 0.4) {
       msg.say([':wave:', ':pray:', ':raised_hands:'])
     }
-  })
+  })*/
 }
