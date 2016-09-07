@@ -16,7 +16,7 @@ module.exports = (slapp) => {
       .say(`LOL, ${msg.body.user_name} said "${msg.bidy.text}"`)*/
   })
 
-  slapp.message('*', ['mention','direct_mention','direct_message'], (msg) => {
+  slapp.event('message', (msg) => {
     console.log("someone posted a message",msg);
   })
 
