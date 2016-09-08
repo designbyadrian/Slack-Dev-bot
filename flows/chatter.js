@@ -77,8 +77,8 @@ module.exports = (slapp) => {
   })
 
   slapp.message('.*', (msg) => {
-console.log("new message",msg);
-    let words = msg.body.text.match(wordRegExp),
+console.log("new event message",msg.body.event);
+    let words = msg.body.event.text.match(wordRegExp),
         index = Math.floor(Math.random()*words.length);
 
         console.log("Words: "+words.join(", "));
