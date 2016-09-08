@@ -3,6 +3,7 @@
 const request = require('request')
 const defineUrl = "http://api.urbandictionary.com/v0/define?term=";
 const randomUrl = "http://api.urbandictionary.com/v0/random";
+const wordRegExp = /\w{5,}/gi;
 
 const thoughts = [
   "Hey guys! Listen to this...",
@@ -77,18 +78,21 @@ module.exports = (slapp) => {
 
   slapp.message('.*', (msg) => {
 
-    if(Math.random()<0.1&&!searching) {
+    let words = msg.body.text.match(wordRegExp),
+        index = Math.floor(Math.random()*words.length);;
+
+    if(Math.random()<0.5&&!searching&&words.length>0) {
 
       searching = true;
 
       request({
-        url: randomUrl,
+        url: defineUrl+encodeURIComponent(words[index].toLowerCase()),
         json: true
       }, (error,response,body)=>{
 
         searching = false;
 
-        if(!error && response.statusCode === 200) {
+        if(!error && response.statusCode === 200 && body.list.length>0) {
 
           try {
             var index = Math.floor(Math.random()*body.list.length);
