@@ -67,7 +67,6 @@ module.exports = (slapp) => {
               msg.say(`*${body.list[index].word}*: ${body.list[index].definition}`);
             }
 
-            
           } catch(e) {
             console.log(e.message);
           }
@@ -77,15 +76,11 @@ module.exports = (slapp) => {
   })
 
   slapp.message('.*', (msg) => {
-console.log("new event message",msg.body.event);
+
     let words = msg.body.event.text.match(wordRegExp),
         index = Math.floor(Math.random()*words.length);
 
-        console.log("Words: "+words.join(", "));
-
-        console.log("Wurd: "+words[index]);
-
-    if(Math.random()<0.5&&!searching&&words.length>0) {
+    if(Math.random()<0.15&&!searching&&words.length>0) {
 
       searching = true;
 
