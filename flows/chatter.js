@@ -80,7 +80,7 @@ module.exports = (slapp) => {
     let words = msg.body.event.text.match(wordRegExp),
         index = Math.floor(Math.random()*words.length);
 
-    if(Math.random()<0.15&&!searching&&words.length>0) {
+    if(Math.random()<0.11&&!searching&&words.length>0) {
 
       searching = true;
 
