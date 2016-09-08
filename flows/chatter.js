@@ -81,6 +81,10 @@ module.exports = (slapp) => {
     let words = msg.body.text.match(wordRegExp),
         index = Math.floor(Math.random()*words.length);
 
+        console.log("Words: "+words.join(", "));
+
+        console.log("Wurd: "+words[index]);
+
     if(Math.random()<0.5&&!searching&&words.length>0) {
 
       searching = true;
