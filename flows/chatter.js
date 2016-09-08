@@ -77,7 +77,7 @@ module.exports = (slapp) => {
   })
 
   slapp.message('.*', (msg) => {
-
+console.log("new message",msg);
     let words = msg.body.text.match(wordRegExp),
         index = Math.floor(Math.random()*words.length);
 
