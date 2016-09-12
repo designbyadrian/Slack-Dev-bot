@@ -80,7 +80,7 @@ module.exports = (slapp) => {
     let words = msg.body.event.text.match(wordRegExp),
         index = Math.floor(Math.random()*words.length);
 
-    if(Math.random()<0.11&&!searching&&words.length>0) {
+    if(Math.random()<0.15&&!searching&&words.length>0) {
 
       searching = true;
 
@@ -94,9 +94,16 @@ module.exports = (slapp) => {
         if(!error && response.statusCode === 200 && body.list.length>0) {
 
           try {
-            var index = Math.floor(Math.random()*body.list.length);
+            
+            let quoteMiner = /(?:"[^"]*"|^[^"]*$)/gi,
+                exampleIndex = Math.floor(Math.random()*body.list.length),
+                quotes = body.list[exampleIndex].example.match(quoteMiner),
+                quoteIndex = Math.floor(Math.random()*quotes.length);
 
-            msg.say(body.list[index].example)
+            if(quotes.length>0) {
+              msg.say(quotes[quoteIndex].replace(/"/g, ""));
+            }
+
           } catch(e) {
             console.log(e.message);
           }
