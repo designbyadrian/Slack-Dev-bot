@@ -80,7 +80,7 @@ module.exports = (slapp) => {
     let words = msg.body.event.text.match(wordRegExp),
         index = Math.floor(Math.random()*words.length);
 
-    if(Math.random()<0.15&&!searching&&words.length>0) {
+    if(Math.random()<0.12&&!searching&&words.length>0) {
 
       searching = true;
 
@@ -102,6 +102,8 @@ module.exports = (slapp) => {
 
             if(quotes.length>0) {
               msg.say(quotes[quoteIndex].replace(/"/g, ""));
+            } else {
+              msg.say(body.list[exampleIndex].example);
             }
 
           } catch(e) {
