@@ -77,8 +77,16 @@ module.exports = (slapp) => {
 
   slapp.message('.*', (msg) => {
 
+console.log(".*",msg.body.event,msg.body.event.text.match(wordRegExp));
+
     let words = msg.body.event.text.match(wordRegExp),
-        index = Math.floor(Math.random()*words.length);
+        index;
+
+    if(!words) {
+      return false;
+    }
+
+    index = Math.floor(Math.random()*words.length);
 
     if(Math.random()<0.12&&!searching&&words.length>0) {
 
