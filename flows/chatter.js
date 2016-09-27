@@ -32,7 +32,7 @@ module.exports = (slapp) => {
       return false;
     }
 
-    var random = false;
+    let random = false, thinkingPhrase;
 
     if(searching) {
       msg.respond("Shut up! I'm busy!");
@@ -42,12 +42,15 @@ module.exports = (slapp) => {
 
       if(msg.body.text.toLowerCase().indexOf('random')>=0) {
         random = true;
-
-        msg.say(thoughts[Math.floor(Math.random()*thoughts.length)]);
+        thinkingPhrase = thoughts[Math.floor(Math.random()*thoughts.length)];
       } else {
-        msg.say(`Do you guys know what ${msg.body.text} is?...`)
+        thinkingPhrase = `Do you guys know what ${msg.body.text} is?...`;
       }
     }
+
+    let thinkingTimeout = setTimeout(()=>{
+      msg.say(thinkingPhrase);
+    },500);
 
     request({
         url: random?randomUrl:(defineUrl+encodeURIComponent(msg.body.text)),
@@ -55,6 +58,8 @@ module.exports = (slapp) => {
       }, (error,response,body)=>{
 
         searching = false;
+
+        clearTimeout(thinkingTimeout);
 
         if(!error && response.statusCode === 200) {
 
