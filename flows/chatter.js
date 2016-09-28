@@ -60,27 +60,22 @@ module.exports = (slapp) => {
                   'title': body.documents[0].title,
                   'title_link': body.documents[0].url,
                   'text': striptags(body.documents[0].excerpt)
-                }],
-                msgObject = {text,attachments};
+                }];
 
             body.documents.shift();
-
-            console.log("num docs "+body.documents.length);
 
             let fields = body.documents.map(doc=>{
               return `<${doc.url}|${doc.title}>`;
             });
-            console.log("num fields "+fields.length);
+
             if(fields.length>0) {
-              msgObject.attachments.fields = [{
+              attachments[0].fields = [{
                 'title': 'Related articles',
                 'value': fields.join("\n")
               }];
             }
 
-            console.log("msgObject",msgObject);
-
-            msg.say(msgObject);
+            msg.say({text,attachments});
 
           } else {
             msg.say(`I couldn't find a document matching "${msg.body.text}" :(`);
