@@ -55,16 +55,27 @@ module.exports = (slapp) => {
 
             let text = '',
                 attachments = [{
-              'fallback': `MDN: ${body.documents[0].title} - ${body.documents[0].url}`,
-              'title': body.documents[0].title,
-              'title_link': body.documents[0].url,
-              'text': body.documents[0].excerpt
-            }];
+                  'fallback': `MDN: ${body.documents[0].title} - ${body.documents[0].url}`,
+                  'title': body.documents[0].title,
+                  'title_link': body.documents[0].url,
+                  'text': body.documents[0].excerpt
+                }],
+                msgObject = {text,attachments};
 
-            msg.say({
-              text,
-              attachments
+            body.documents.shift();
+
+            let fields = body.documents.map(doc=>{
+              return `<${doc.url}|${doc.title}>`;
             });
+
+            if(fields.length>0) {
+              msgObject.fields = [{
+                'title': 'Related articles',
+                'value': fields.join("\n")
+              }];
+            }
+
+            msg.say(msgObject);
 
           } else {
             msg.say(`I couldn't find a document matching "${msg.body.text}" :(`);
