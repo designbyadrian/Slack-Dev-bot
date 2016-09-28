@@ -203,7 +203,7 @@ module.exports = (slapp) => {
 
   slapp.message('.*', (msg) => {
 
-    if(Math.random()<2) {
+    if(Math.random()<0.1) {
 
       let matchedWords = msg.body.event.text.match(reactionRegExp);
 
