@@ -1,6 +1,7 @@
 'use strict'
 
 const request = require('request')
+const striptags = require('striptags')
 const requestUri = 'https://developer.mozilla.org/en-US/search.json?q='
 
 const reactions = {
@@ -58,7 +59,7 @@ module.exports = (slapp) => {
                   'fallback': `MDN: ${body.documents[0].title} - ${body.documents[0].url}`,
                   'title': body.documents[0].title,
                   'title_link': body.documents[0].url,
-                  'text': body.documents[0].excerpt
+                  'text': striptags(body.documents[0].excerpt)
                 }],
                 msgObject = {text,attachments};
 
