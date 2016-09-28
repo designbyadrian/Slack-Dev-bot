@@ -53,7 +53,8 @@ module.exports = (slapp) => {
 
           if(body.documents.length>0) {
 
-            let attachments = [{
+            let text = '',
+                attachments = [{
               'fallback': `MDN: ${body.documents[0].title} - ${body.documents[0].url}`,
               'title': body.documents[0].title,
               'title_link': body.documents[0].url,
@@ -61,6 +62,7 @@ module.exports = (slapp) => {
             }];
 
             msg.say({
+              text,
               attachments
             });
 
