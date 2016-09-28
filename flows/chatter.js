@@ -5,26 +5,56 @@ const striptags = require('striptags')
 const requestUri = 'https://developer.mozilla.org/en-US/search.json?q='
 
 const reactions = {
-  'react' : [],
-  'angular' : [],
-  'js' : [],
-  'sass' : [],
-  'bem' : [],
-  'less' : [],
-  'ember' : [],
-  'backbone' : [],
-  'mustache' : [],
-  'handlebars' : [],
-  'google' : [],
-  'twitter' : [],
-  'airbnb' : [],
-  'bootstrap' : [],
-  'foundation' : []
+  'react' : [
+    "Reach is only the view layer, damn it!",
+    "You cannot build a fully functional dynamic application with React alone.",
+    "Bundling Javascript and HTML into JSX makes components easily understandable",
+    "React works great for teams, strongly enforcing UI and workflow patterns",
+    "React UI code is readable and maintainable",
+    "Componentized UI is the future of web development!",
+    "Have you heard of Redux?",
+    "Heard a React.js joke today. Someone said it was better than Angular."
+  ],
+  'redux': [
+    "What the Flux?! Let's Redux!"
+  ],
+  'flux': [
+    "There is no such thing as Flux",
+    "Flux is more of a pattern than a framework"
+  ],
+  // 'angular' : [],
+  // 'js' : [],
+  // 'jsx': [
+  //
+  // ],
+  // 'sass' : [],
+  // 'bem' : [],
+  // 'less' : [],
+  // 'ember' : [],
+  // 'backbone' : [],
+  // 'mustache' : [],
+  'node': [
+    "Why was the JavaScript developer sad? Because he didn’t Node how to Express himself."
+  ],
+  // 'handlebars' : [],
+  // 'google' : [],
+  // 'twitter' : [],
+  // 'airbnb' : [],
+  // 'bootstrap' : [],
+  // 'foundation' : [],
+  'webpack': [
+    "Webpack is a build tool that puts all of your assets in a dependency graph",
+    "Webpack does dead asset elimination",
+    "Webpack offers stable production deploys"
+  ],
+  'other': [
+    "When a developer complains about having to learn something new, I assume they don't understand the underlying premise of their job."
+  ]
 };
 
 module.exports = (slapp) => {
 
-  const reactionKeys = Object.keys(reactions);
+  const reactionRegExp = new RegExp(Object.keys(reactions).join("|"),"gi")
 
   slapp.command('/dev', (msg) => {
 
@@ -108,7 +138,18 @@ module.exports = (slapp) => {
   slapp.message('.*', (msg) => {
 
     if(Math.random()<2) {
-      msg.say("I hear you!");
+
+      let matchedWords = msg.body.event.text.match(reactionRegExp);
+
+      if(matchedWords.length>0) {
+        let randomWordIndex = Math.floor(Math.random()*matchedWords.length),
+            theWord = matchedWords[randomWordIndex],
+            randomResponseIndex = Math.floor(Math.random()*reactions[theWord].length),
+            theResponse = reactions[theWord][randomResponseIndex];
+
+        msg.say(theResponse);
+      }
+
     }
 
   }) // message
