@@ -11,18 +11,24 @@ const reactions = {
     "Angular injects JS into HTML"
   ],
   'bem' : [
-    "Heil Hitler!"
-    "Nazi SASS"
-    "BEM is evil"
-    "It's BEMaddening"
-    "I'm BEMused"
+    "Heil Hitler!",
+    "Nazi SASS",
+    "BEM is evil",
+    "It's BEMaddening",
+    "I'm BEMused",
     "BEM - because you can't write clean code without Adolf Hitler telling you what to do"
+  ],
+  'bootstrap' : [
+    "May I suggest http://bootstrapfoundationfive.github.io?",
+    "May I suggest http://html9responsiveboilerstrapjs.com?",
   ],
   'css': [
     "`#nsa { opacity: 1; }`",
     "`.monarch { position: inherit; }`",
     "`#chucknorris * { z-index: 9999; }`",
-    "`.hangover {repeat: never;}`"
+    "`.hangover {repeat: never;}`",
+    "`.UKIP {border: 100px solid white;}`",
+    "`.vodka { position: absolute; }`"
   ],
   'ember' : [
     "Why was Ember.js turning red? Because it was EMBERrassed for not remEMBERing its route home"
@@ -31,9 +37,17 @@ const reactions = {
     "There is no such thing as Flux",
     "Flux is more of a pattern than a framework"
   ],
+  'foundation': [
+    "May I suggest http://bootstrapfoundationfive.github.io?",
+    "May I suggest http://html9responsiveboilerstrapjs.com?",
+  ],
   'js' : [
     "How do you comfort a JavaScript bug? You console it",
     'When a JavaScript date has gone bad, "Don’t call me, I\'ll callback you. I promise!"'
+  ],
+  'material': [
+    "May I suggest http://bootstrapfoundationfive.github.io?",
+    "May I suggest http://html9responsiveboilerstrapjs.com?",
   ],
   'node': [
     "Why was the JavaScript developer sad? Because he didn’t Node how to Express himself."
@@ -68,8 +82,7 @@ const reactions = {
   // 'google' : [],
   // 'twitter' : [],
   // 'airbnb' : [],
-  // 'bootstrap' : [],
-  // 'foundation' : [],
+
   'responsive': [
     "My dick is responsive",
     "I've got a response for you, fuck face",
