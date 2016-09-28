@@ -65,16 +65,20 @@ module.exports = (slapp) => {
 
             body.documents.shift();
 
+            console.log("num docs "+body.documents.length);
+
             let fields = body.documents.map(doc=>{
               return `<${doc.url}|${doc.title}>`;
             });
-
+            console.log("num fields "+fields.length);
             if(fields.length>0) {
               msgObject.fields = [{
                 'title': 'Related articles',
                 'value': fields.join("\n")
               }];
             }
+
+            console.log("fields",fields);
 
             msg.say(msgObject);
 
