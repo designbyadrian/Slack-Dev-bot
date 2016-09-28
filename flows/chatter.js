@@ -69,10 +69,24 @@ module.exports = (slapp) => {
             });
 
             if(fields.length>0) {
-              attachments[0].fields = [{
-                'title': 'Related articles',
-                'value': fields.join("\n")
+
+              attachments[0].callback_id = 'read_more_callback'+(+ new Date());
+              attachments[0].actions: [{
+                'text': 'Show related articles',
+                'name': 'more',
+                'type': 'button'
               }];
+
+              slapp.action(attachments[0].callback_id, 'more', (msg, value) => {
+                msg.say({
+                  'text': '',
+                  'attachments': [{
+                    'title': 'Articles related to '+body.documents[0].title,
+                    'text': fields.join("\n")
+                  }]
+                })
+              })
+
             }
 
             msg.say({text,attachments});
