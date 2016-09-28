@@ -71,7 +71,7 @@ module.exports = (slapp) => {
             if(fields.length>0) {
 
               attachments[0].callback_id = 'read_more_callback'+(+ new Date());
-              attachments[0].actions: [{
+              attachments[0].actions = [{
                 'text': 'Show related articles',
                 'name': 'more',
                 'type': 'button'
