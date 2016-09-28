@@ -1,6 +1,6 @@
 name: Dev Bot
-description: Slackbot for displaying developer jokes
-email: adrian@designbyadrian.com.com
+description: Slackbot for querying MDN and displaying developer jokes
+email: adrian@designbyadrian.com
 avatar: img/icon.png
 background: img/background.gif
 screenshots:
