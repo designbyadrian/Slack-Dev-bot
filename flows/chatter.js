@@ -4,20 +4,20 @@ const request = require('request')
 const requestUri = 'https://developer.mozilla.org/en-US/search.json?q='
 
 const reactions = {
-  'react' : []
-  'angular' : []
-  'js' : []
-  'sass' : []
-  'bem' : []
-  'less' : []
-  'ember' : []
-  'backbone' : []
-  'mustache' : []
-  'handlebars' : []
-  'google' : []
-  'twitter' : []
-  'airbnb' : []
-  'bootstrap' : []
+  'react' : [],
+  'angular' : [],
+  'js' : [],
+  'sass' : [],
+  'bem' : [],
+  'less' : [],
+  'ember' : [],
+  'backbone' : [],
+  'mustache' : [],
+  'handlebars' : [],
+  'google' : [],
+  'twitter' : [],
+  'airbnb' : [],
+  'bootstrap' : [],
   'foundation' : []
 };
 
