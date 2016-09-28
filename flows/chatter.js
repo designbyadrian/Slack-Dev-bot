@@ -5,6 +5,39 @@ const striptags = require('striptags')
 const requestUri = 'https://developer.mozilla.org/en-US/search.json?q='
 
 const reactions = {
+  'angular' : [
+    "Angular 2 rules!",
+    "Angular 2's design embraces the web component's standard",
+    "Angular injects JS into HTML"
+  ],
+  'bem' : [
+    "Heil Hitler!"
+    "Nazi SASS"
+    "BEM is evil"
+    "It's BEMaddening"
+    "I'm BEMused"
+    "BEM - because you can't write clean code without Adolf Hitler telling you what to do"
+  ],
+  'css': [
+    "`#nsa { opacity: 1; }`",
+    "`.monarch { position: inherit; }`",
+    "`#chucknorris * { z-index: 9999; }`",
+    "`.hangover {repeat: never;}`"
+  ],
+  'ember' : [
+    "Why was Ember.js turning red? Because it was EMBERrassed for not remEMBERing its route home"
+  ],
+  'flux': [
+    "There is no such thing as Flux",
+    "Flux is more of a pattern than a framework"
+  ],
+  'js' : [
+    "How do you comfort a JavaScript bug? You console it",
+    'When a JavaScript date has gone bad, "Don’t call me, I\'ll callback you. I promise!"'
+  ],
+  'node': [
+    "Why was the JavaScript developer sad? Because he didn’t Node how to Express himself."
+  ],
   'react' : [
     "Reach is only the view layer, damn it!",
     "You cannot build a fully functional dynamic application with React alone.",
@@ -13,38 +46,47 @@ const reactions = {
     "React UI code is readable and maintainable",
     "Componentized UI is the future of web development!",
     "Have you heard of Redux?",
-    "Heard a React.js joke today. Someone said it was better than Angular."
+    "Heard a React.js joke today. Someone said it was better than Angular.",
+    "@Nico loves React",
+    "Use Angular instead"
   ],
   'redux': [
     "What the Flux?! Let's Redux!"
   ],
-  'flux': [
-    "There is no such thing as Flux",
-    "Flux is more of a pattern than a framework"
-  ],
-  // 'angular' : [],
-  'js' : [
-    "How do you comfort a JavaScript bug? You console it",
-    'When a JavaScript date has gone bad, "Don’t call me, I\'ll callback you. I promise!"'
-  ],
+
   // 'jsx': [
   //
   // ],
-  // 'sass' : [],
-  // 'bem' : [],
+
+
   // 'less' : [],
-  // 'ember' : [],
+
   // 'backbone' : [],
   // 'mustache' : [],
-  'node': [
-    "Why was the JavaScript developer sad? Because he didn’t Node how to Express himself."
-  ],
+
   // 'handlebars' : [],
   // 'google' : [],
   // 'twitter' : [],
   // 'airbnb' : [],
   // 'bootstrap' : [],
   // 'foundation' : [],
+  'responsive': [
+    "My dick is responsive",
+    "I've got a response for you, fuck face",
+    "To install HTML9 Responsive Boilerstrap JS just attackclone the grit repo pushmerge, then rubygem the lymphnode js shawarma module — and presto!",
+    "Why did the web developer leave the restaurant? Because of the table layout",
+    "You are the CSS to my HTML ❤️",
+    "Sometimes I just need a <br/>"
+  ],
+  'sass' : [
+    "Forget SASS. Insert DICSS right into your CSS."
+  ],
+  'seo': [
+    "An SEO expert walks into a bar,bars,beer garden,hangout,lounge,night club,mini bar,bar stool,tavern,pub,beer,wine,whiskey",
+    "The best place to hide a body is page 2 of Google search results.",
+    "How many SEO experts does it take to change a light bulb,lightbulb,light,bulb,lamp,lighting,switch?",
+    "Why do SEOs love the farmer's market? Lots of organic content.",
+  ],
   'webpack': [
     "Webpack is a build tool that puts all of your assets in a dependency graph",
     "Webpack does dead asset elimination",
@@ -56,7 +98,12 @@ const reactions = {
 };
 
 /* References (copies)*/
+reactions.grids = reactions.responsive;
+reactions.grid = reactions.responsive;
 reactions.javascript = reactions.js;
+reactions.nodejs = reactions.node;
+reactions.rwd = reactions.responsive;
+reactions['search engine'] = reactions.seo;
 
 module.exports = (slapp) => {
 
