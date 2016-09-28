@@ -72,13 +72,13 @@ module.exports = (slapp) => {
             });
             console.log("num fields "+fields.length);
             if(fields.length>0) {
-              msgObject.fields = [{
+              msgObject.attachments.fields = [{
                 'title': 'Related articles',
                 'value': fields.join("\n")
               }];
             }
 
-            console.log("fields",fields);
+            console.log("msgObject",msgObject);
 
             msg.say(msgObject);
 
