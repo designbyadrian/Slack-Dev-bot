@@ -23,7 +23,10 @@ const reactions = {
     "Flux is more of a pattern than a framework"
   ],
   // 'angular' : [],
-  // 'js' : [],
+  'js' : [
+    "How do you comfort a JavaScript bug? You console it",
+    'When a JavaScript date has gone bad, "Don’t call me, I\'ll callback you. I promise!"'
+  ],
   // 'jsx': [
   //
   // ],
@@ -51,6 +54,9 @@ const reactions = {
     "When a developer complains about having to learn something new, I assume they don't understand the underlying premise of their job."
   ]
 };
+
+/* References (copies)*/
+reactions.javascript = reactions.js;
 
 module.exports = (slapp) => {
 
@@ -142,10 +148,14 @@ module.exports = (slapp) => {
       let matchedWords = msg.body.event.text.match(reactionRegExp);
 
       if(matchedWords.length>0) {
-        let randomWordIndex = Math.floor(Math.random()*matchedWords.length),
-            theWord = matchedWords[randomWordIndex],
-            randomResponseIndex = Math.floor(Math.random()*reactions[theWord].length),
-            theResponse = reactions[theWord][randomResponseIndex];
+        let randomWordIndex = Math.floor(Math.random()*matchedWords.length);
+        console.log("randomWordIndex",randomWordIndex);
+        let theWord = matchedWords[randomWordIndex];
+        console.log("theWord",theWord);
+        let randomResponseIndex = Math.floor(Math.random()*reactions[theWord].length);
+        console.log("randomResponseIndex",randomResponseIndex);
+        let theResponse = reactions[theWord][randomResponseIndex];
+        console.log("theResponse",theResponse);
 
         msg.say(theResponse);
       }
