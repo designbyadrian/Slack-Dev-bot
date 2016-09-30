@@ -205,17 +205,13 @@ module.exports = (slapp) => {
 
     if(Math.random()<0.1) {
 
-      let matchedWords = msg.body.event.text.match(reactionRegExp);
+      let matchedWords = msg.body.event.text.toLowerCase().match(reactionRegExp);
 
       if(matchedWords.length>0) {
         let randomWordIndex = Math.floor(Math.random()*matchedWords.length);
-        console.log("randomWordIndex",randomWordIndex);
         let theWord = matchedWords[randomWordIndex];
-        console.log("theWord",theWord);
         let randomResponseIndex = Math.floor(Math.random()*reactions[theWord].length);
-        console.log("randomResponseIndex",randomResponseIndex);
         let theResponse = reactions[theWord][randomResponseIndex];
-        console.log("theResponse",theResponse);
 
         msg.say(theResponse);
       }
